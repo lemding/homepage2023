@@ -49,12 +49,27 @@ public class TempController {
 			
 			return "temp/TempRegist";
 		}
-		//임시데이터 등록하기
-		@RequestMapping(value = "/temp/insert.do")
-		public String insert(TempVO tempVO, HttpServletRequest request) throws Exception{
-			tempService.insertTemp(tempVO);
-			
-			return "forward:/temp/selectList.do";
-		}
+	//임시데이터 등록하기
+	@RequestMapping(value = "/temp/insert.do")
+	public String insert(TempVO tempVO, HttpServletRequest request) throws Exception{
+		tempService.insertTemp(tempVO);
+		
+		return "forward:/temp/selectList.do";
+	}
+
+	//임시데이터 수정하기
+	@RequestMapping(value = "/temp/update.do")
+	public String update(TempVO tempVO, HttpServletRequest request) throws Exception{
+		tempService.updateTemp(tempVO);
+		return "forward:/temp/selectList.do";
+	}
+
+	//임시데이터 삭제하기
+	@RequestMapping(value = "/temp/delete.do")
+	public String delete(TempVO tempVO, HttpServletRequest request) throws Exception{
+		tempService.deleteTemp(tempVO);
+		return "forward:/temp/selectList.do";
+	}
+	
 }
 

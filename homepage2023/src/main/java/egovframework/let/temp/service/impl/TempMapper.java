@@ -21,4 +21,10 @@ List<EgovMap> selectTempList(TempVO vo) throws Exception;
 //임시데이터 등록하기
 void insertTemp(TempVO vo) throws Exception;
 
+//임시데이터 수정하기
+void updateTemp(TempVO vo) throws Exception;
+
+//임시데이터 삭제하기
+void deleteTemp(TempVO vo) throws Exception;
+
 }

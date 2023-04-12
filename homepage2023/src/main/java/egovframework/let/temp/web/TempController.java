@@ -23,7 +23,7 @@ public class TempController {
 	//임시데이터 가져오기
 	@RequestMapping(value = "/temp/select.do")
 	public String select(TempVO tempVO, HttpServletRequest request, ModelMap model) throws Exception{
-		TempVO result = tempService.selectTemp(tempVO);
+		TempVO result = tempService.selectTemp(tempVO); //
 		model.addAttribute("result", result);
 		return "temp/TempSelect";
 	}
@@ -43,7 +43,7 @@ public class TempController {
 			TempVO result = new TempVO();
 			//egovframework.let.utl.fcc.service.EgovStringUtil
 			if(!EgovStringUtil.isEmpty(tempVO.getTempId())) {
-				result = tempService.selectTemp(tempVO);
+				result = tempService.selectTemp(tempVO); //
 			}
 			model.addAttribute("result", result);
 			
@@ -70,6 +70,21 @@ public class TempController {
 		tempService.deleteTemp(tempVO);
 		return "forward:/temp/selectList.do";
 	}
+	
+	//JSTL
+	@RequestMapping(value = "/temp/jstl.do")
+	public String jstl(TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
+		
+			return "/temp/Jstl";
+	}
+	
+	//JSTL Import용
+	@RequestMapping(value = "/temp/jstlImport.do")
+	public String jstlImport(TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
+		
+		return "/temp/JstlImport";
+	}
+	
 	
 }
 
